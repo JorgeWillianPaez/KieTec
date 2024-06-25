@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<KieTec.Models.Produto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Produtos";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-end">
+    <h1 class="mb-0">Produtos:</h1>
+    <a role="button" class="btn btn-primary" asp-action="Create">+ Novo Produto</a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table mt-4">
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
@@ -49,11 +49,13 @@
                 @Html.DisplayFor(modelItem => item.Fornecedor.Id)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><img width ="30px" src="~/assets/pencil.png" /></a>
+                <a asp-action="Details" asp-route-id="@item.Id"><img width="30px" src="~/assets/read.png" /></a>
+                <a asp-action="Delete" asp-route-id="@item.Id"><img width="30px" src="~/assets/delete.png" /></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<a role="button" class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>

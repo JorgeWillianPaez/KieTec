@@ -19,7 +19,7 @@ namespace KieTec.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Read()
         {
             return View(await _context.Fornecedores.ToListAsync());
         }
@@ -37,7 +37,7 @@ namespace KieTec.Controllers
             {
                 _context.Add(fornecedor);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Read");
             }
             return View(fornecedor);
         }
