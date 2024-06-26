@@ -36,7 +36,7 @@ ou
 
 ### Decisões
 
-O teste não ficou 100% concluído. Por erro meu, passou despercebido a instrução para a criação do método "Add Supplier", para associar o "Fornecedor" ao produto, ao invés disso, o "Fornecedor" pode ser adicionado normalmente através do formulário de edição do produto, ou na criação do mesmo.
+O teste não ficou 100% concluído. Por erro meu, passou despercebido a instrução para a criação do método "Add Supplier", quando voltei para revisar os requisitos já estava com o tempo curto para. Para associar o "Fornecedor" ao produto, ele pode ser adicionado normalmente através do formulário de edição do produto, ou na criação do mesmo.
 
 Esse teste foi construído utilizando o padrão MVC. Infelizmente não consegui tempo o suficiente para fazer tudo que estava planejando devido as demandas na empresa em que trabalho atualmente, e na minha faculdade. Com mais tempo disponível eu com certeza melhoraria os seguintes pontos:
 
