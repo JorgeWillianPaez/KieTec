@@ -8,8 +8,7 @@ Foi utilizado ASP.NET MVC com .NET 8, assim como o banco de dados SQLite para ar
 - Faça o clone do repositório.
 - Acesse a solução e abra o terminal na raiz do projeto.
 
-#### Importante
-
+#### Próximos passos (IMPORTANTE)
 Método 1: Caso esteja utilizando o terminal do Windows ou Power Shell, rode o seguinte comando:
 
 - dotnet ef database update
