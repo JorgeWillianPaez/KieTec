@@ -3,12 +3,12 @@
 Esse projeto foi desenvolvido para o teste técnico da Kie Tec.
 Foi utilizado ASP.NET MVC com .NET 8, assim como o banco de dados SQLite para armazenamento das informações.
 
-#### Instruções para rodar a aplicação
+### Instruções para rodar a aplicação
 
 - Faça o clone do repositório.
 - Acesse a solução e abra o terminal na raiz do projeto.
 
-#### Próximos passos (IMPORTANTE)
+### Próximos passos (IMPORTANTE)
 Método 1: Caso esteja utilizando o terminal do Windows ou Power Shell, rode o seguinte comando:
 
 - dotnet ef database update
@@ -22,7 +22,7 @@ Após isso, já é possível rodar a aplicação através do Visual Studio ou pe
 
 - dotnet run
 
-#### Fluxo alternativo
+### Fluxo alternativo
 
 Se houver algum problema com o banco de dados no momento de rodar a aplicação, exclua o arquivo "LocalDatabase.db" e a pasta "Migrations", crie e execute as migrations novamente, da seguinte forma:
 
@@ -34,7 +34,7 @@ ou
 - add-migration NomeDaMigration
 - update-database
 
-#### Decisões
+### Decisões
 
 O teste não ficou 100% concluído. Por erro meu, passou despercebido a instrução para a criação do método "Add Supplier", para associar o "Fornecedor" ao produto, ao invés disso, o "Fornecedor" pode ser adicionado normalmente através do formulário de edição do produto.
 
