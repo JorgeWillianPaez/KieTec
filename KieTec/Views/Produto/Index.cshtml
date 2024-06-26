@@ -9,53 +9,72 @@
     <a role="button" class="btn btn-primary" asp-action="Create">+ Novo Produto</a>
 </div>
 
-<table class="table mt-4">
-    <thead class="table-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Preco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataDeCriacao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fornecedor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                R$ @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataDeCriacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"><img width ="30px" src="~/assets/pencil.png" /></a>
+<div class="d-none d-md-block mt-4 mb-3">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataDeCriacao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fornecedor)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    R$ @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataDeCriacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><img width ="30px" src="~/assets/pencil.png" /></a>
+                    <a asp-action="Details" asp-route-id="@item.Id"><img width="30px" src="~/assets/read.png" /></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id"><img width="30px" src="~/assets/delete.png" /></a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-4 mb-3 d-flex gap-3 justify-content-center d-md-none">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Produto: @Html.DisplayFor(modelItem => item.Nome)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Fornecedor: @Html.DisplayFor(modelItem => item.Fornecedor.Nome)</h6>
+                <p class="card-text mb-1">Descrição: @Html.DisplayFor(modelItem => item.Descricao)</p>
+                <h3 class="card-text">Preço: @Html.DisplayFor(modelItem => item.Preco)</h3>
+                <a asp-action="Edit" asp-route-id="@item.Id"><img width="30px" src="~/assets/pencil.png" /></a>
                 <a asp-action="Details" asp-route-id="@item.Id"><img width="30px" src="~/assets/read.png" /></a>
                 <a asp-action="Delete" asp-route-id="@item.Id"><img width="30px" src="~/assets/delete.png" /></a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            </div>
+        </div>
+    }
+</div>
 
 <a role="button" class="btn btn-primary" asp-controller="Home" asp-action="Index">Voltar</a>

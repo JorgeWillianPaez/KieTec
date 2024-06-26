@@ -33,3 +33,13 @@ body {
         width: 30%;
     }
 }
+
+.form-produto-edit label {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-produto-edit span {
+    font-size: 16px;
+    font-weight: 400;
+}

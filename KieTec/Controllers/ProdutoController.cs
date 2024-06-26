@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using KieTec.Data;
 using KieTec.Models;
+using System.Globalization;
 
 namespace KieTec.Controllers
 {
@@ -19,14 +20,12 @@ namespace KieTec.Controllers
             _context = context;
         }
 
-        // GET: Produto
         public async Task<IActionResult> Index()
         {
             var kieTecContext = _context.Produtos.Include(p => p.Fornecedor);
             return View(await kieTecContext.ToListAsync());
         }
 
-        // GET: Produto/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,7 +44,6 @@ namespace KieTec.Controllers
             return View(produto);
         }
 
-        // GET: Produto/Create
         public IActionResult Create()
         {
             ViewData["FornecedorId"] = new SelectList(_context.Fornecedores, "Id", "Id");
@@ -53,9 +51,6 @@ namespace KieTec.Controllers
             return View();
         }
 
-        // POST: Produto/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Preco,DataDeCriacao,FornecedorId")] Produto produto)
@@ -70,7 +65,6 @@ namespace KieTec.Controllers
             return View(produto);
         }
 
-        // GET: Produto/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,12 +78,11 @@ namespace KieTec.Controllers
                 return NotFound();
             }
             ViewData["FornecedorId"] = new SelectList(_context.Fornecedores, "Id", "Id", produto.FornecedorId);
+            ViewBag.Fornecedores = _context.Fornecedores.ToList();
+            ViewBag.Fornecedor = produto.Fornecedor;
             return View(produto);
         }
 
-        // POST: Produto/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,Preco,DataDeCriacao,FornecedorId")] Produto produto)
@@ -123,7 +116,6 @@ namespace KieTec.Controllers
             return View(produto);
         }
 
-        // GET: Produto/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -142,7 +134,6 @@ namespace KieTec.Controllers
             return View(produto);
         }
 
-        // POST: Produto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

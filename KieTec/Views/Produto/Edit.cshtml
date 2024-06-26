@@ -8,7 +8,7 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 form-produto-edit">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -17,25 +17,51 @@
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
                 <label asp-for="Descricao" class="control-label"></label>
                 <input asp-for="Descricao" class="form-control" />
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
                 <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control" />
+                <input asp-for="Preco" class="form-control" lang="en-us" />
                 <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
                 <label asp-for="DataDeCriacao" class="control-label"></label>
                 <input asp-for="DataDeCriacao" class="form-control" />
                 <span asp-validation-for="DataDeCriacao" class="text-danger"></span>
             </div>
-            <div class="form-group mt-2">
+            <div class="form-group">
                 <label asp-for="FornecedorId" class="control-label"></label>
-                <select asp-for="FornecedorId" class="form-control" asp-items="ViewBag.FornecedorId"></select>
-                <span asp-validation-for="FornecedorId" class="text-danger"></span>
+                <select asp-for="FornecedorId" class="form-control">
+                    @if (ViewBag.Fornecedores != null)
+                    {
+                        if (ViewBag.Fornecedor != null)
+                        {
+                            foreach (var fornecedor in ViewBag.Fornecedores)
+                            {
+                                if (fornecedor.Id == ViewBag.Fornecedor.Id)
+                                {
+                                    <option selected value="@fornecedor.Id">@fornecedor.Nome</option>
+
+                                }
+                                else
+                                {
+                                    <option value="@fornecedor.Id">@fornecedor.Nome</option>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <option value="">Selecione um fornecedor</option>
+                            foreach (var fornecedor in ViewBag.Fornecedores)
+                            {
+                                <option value="@fornecedor.Id">@fornecedor.Nome</option>
+                            }
+                        }
+                    }
+                </select>
             </div>
             <div class="form-group d-flex flex-column flex-sm-row gap-2 mt-5">
                 <a role="button" class="btn btn-primary w-100" asp-action="Index">Voltar</a>
@@ -43,6 +69,7 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 
 @section Scripts {
