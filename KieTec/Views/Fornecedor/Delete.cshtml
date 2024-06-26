@@ -1,12 +1,11 @@
 ﻿@model KieTec.Models.Fornecedor
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Fornecedor";
 }
 
-<h3>Você tem certeza que deseja excluir esse fornecedor?</h3>
+<h3 class="mt-5">Você tem certeza que deseja excluir esse fornecedor?</h3>
 <div>
-    <h4>Fornecedor</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,9 +22,9 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="d-flex flex-column flex-sm-row gap-2 mt-3">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="Read">Voltar</a>
+        <input type="submit" value="Deletar" class="btn btn-danger w-100" />
+        <a role="button" class="btn btn-primary w-100" asp-action="Read">Voltar</a>
     </form>
 </div>

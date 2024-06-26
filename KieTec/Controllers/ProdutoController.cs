@@ -49,6 +49,7 @@ namespace KieTec.Controllers
         public IActionResult Create()
         {
             ViewData["FornecedorId"] = new SelectList(_context.Fornecedores, "Id", "Id");
+            ViewBag.Fornecedores = _context.Fornecedores.ToList();
             return View();
         }
 

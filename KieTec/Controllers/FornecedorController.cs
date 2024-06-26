@@ -84,7 +84,7 @@ namespace KieTec.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Read");
             }
             return View(fornecedor);
         }
@@ -117,7 +117,7 @@ namespace KieTec.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Read");
         }
 
         private bool FornecedorExists(int id)

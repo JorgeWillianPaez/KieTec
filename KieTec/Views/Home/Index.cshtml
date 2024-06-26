@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Início";
 }
 
-<div class="text-center d-flex flex-column justify-content-center align-items-center vh-100">
+<div class="home text-center d-flex flex-column justify-content-center align-items-center vh-100">
     <img class="mb-5 align-self-center" src="~/assets/logo.webp" width="300px" />
 
-    <a role="button" class="btn btn-primary btn-block mb-2" asp-area="" asp-controller="Produto" asp-action="Index">Produto</a>
-    <a role="button" class="btn btn-primary btn-block mb-2" asp-area="" asp-controller="Fornecedor" asp-action="Read">Fornecedor</a>
-    </ul>
+    <a role="button" class="btn btn-primary btn-block mb-2" asp-area="" asp-controller="Produto" asp-action="Index">Produtos</a>
+    <a role="button" class="btn btn-primary btn-block mb-2" asp-area="" asp-controller="Fornecedor" asp-action="Read">Fornecedores</a>
 </div>

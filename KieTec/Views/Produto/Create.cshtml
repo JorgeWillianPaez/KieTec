@@ -4,7 +4,7 @@
     ViewData["Title"] = "Produto";
 }
 
-<h1>Cadastrar produto</h1>
+<h1 class="mt-5">Cadastrar produto</h1>
 
 <hr />
 <div class="row">
@@ -12,38 +12,44 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Nome" class="control-label">Nome:</label>
+                <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger">Campo obrigatório</span>
+                <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label">Descrição:</label>
+            <div class="form-group mt-2">
+                <label asp-for="Descricao" class="control-label"></label>
                 <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger">Campo obrigatório</span>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label">Preço:</label>
-                <input asp-for="Preco" class="form-control" />
-                <span asp-validation-for="Preco" class="text-danger">Campo obrigatório</span>
+            <div class="form-group mt-2">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" step="0.01" type="text" lang="en-US" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DataDeCriacao" class="control-label">Data de Criação:</label>
+            <div class="form-group mt-2">
+                <label asp-for="DataDeCriacao" class="control-label"></label>
                 <input asp-for="DataDeCriacao" class="form-control" />
-                <span asp-validation-for="DataDeCriacao" class="text-danger">Campo obrigatório</span>
+                <span asp-validation-for="DataDeCriacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label asp-for="FornecedorId" class="control-label"></label>
-                <select asp-for="FornecedorId" class ="form-control" asp-items="ViewBag.FornecedorId"></select>
+                <select asp-for="FornecedorId" class="form-control">
+                    <option value="">Selecione um fornecedor</option>
+                    @if (ViewBag.Fornecedores != null)
+                    {
+                        foreach (var fornecedor in ViewBag.Fornecedores)
+                        {
+                            <option value="@fornecedor.Id">@fornecedor.Nome</option>
+                        }
+                    }
+                </select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group d-flex flex-column flex-sm-row gap-2 mt-5">
+                <a role="button" class="btn btn-primary w-100" asp-action="Index">Voltar</a>
+                <input type="submit" value="Criar" class="btn btn-primary w-100" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a role="button" class="btn btn-primary" asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
